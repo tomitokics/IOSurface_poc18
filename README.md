@@ -7,6 +7,7 @@ A pre-patch version of the vulnerable function can be seen below:
 
 ![Pre-Patch Function](images/function.png)
 
+Diffing the two versions shows the patch very clearly:
 
 ![Diffing the two functions](images/diff.png)
 
