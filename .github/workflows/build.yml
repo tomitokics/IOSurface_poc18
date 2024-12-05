@@ -1,0 +1,31 @@
+name: Build the Application
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Install make (if necessary)
+      - name: Install make (if needed)
+        run: |
+          brew install make
+
+      # Step 3: Run the Makefile
+      - name: Run makefile to build the app
+        run: |
+          make
+          
+      # Step 4: Upload artifact
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: explt-ipa
+          path: build/explt.ipa
